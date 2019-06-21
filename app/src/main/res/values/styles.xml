@@ -10,5 +10,6 @@
 
     <style name="SplashScreenCustom" parent="Theme.AppCompat.NoActionBar"></style>
 
+    <style name="LoginStyle" parent="Theme.AppCompat.NoActionBar"></style>
 
 </resources>

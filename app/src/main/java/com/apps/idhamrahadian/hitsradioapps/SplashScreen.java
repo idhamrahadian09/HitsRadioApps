@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.apps.idhamrahadian.hitsradioapps.view.Home;
+import com.apps.idhamrahadian.hitsradioapps.view.Login;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -17,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, Home.class));
+                startActivity(new Intent(SplashScreen.this, Login.class));
                 finish();
             }
         },2000);
