@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     RelativeLayout relativeLayout;
     AnimationDrawable animationDrawable;
@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void pindah(View view) {
-        Intent intent = new Intent(Login.this, Home.class);
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 }

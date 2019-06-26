@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Login"
+        <activity android:name=".view.LoginActivity"
             android:theme="@style/LoginStyle"></activity>
-        <activity android:name=".view.Home"
+        <activity android:name=".view.HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".SplashScreen"
+            android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenCustom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
