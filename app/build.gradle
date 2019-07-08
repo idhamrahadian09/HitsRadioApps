@@ -29,4 +29,10 @@ dependencies {
 
 //    Untuk Navigasi Drawer
     implementation 'com.android.support:design:28.0.0'
+
+//  Untuk circle image view
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+//    Untuk menjalankan format .gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
 }

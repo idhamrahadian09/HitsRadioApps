@@ -5,8 +5,9 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
 import com.apps.idhamrahadian.hitsradioapps.view.HomeActivity;
-import com.apps.idhamrahadian.hitsradioapps.view.LoginActivity;
+
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
                 finish();
             }
-        },2000);
+        },4000);
+
+
     }
 }

@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
-public class HomeFragment extends Fragment {
+public class SocialMedia extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_social_media, container, false);
 
         return view;
     }

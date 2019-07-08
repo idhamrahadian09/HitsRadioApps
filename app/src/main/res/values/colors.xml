@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="putih">#ffffff</color>
+
     <!--color untuk bg splashscreen-->
-    <color name="bgApp">#3C3F41</color>
+    <color name="bgApp">#FFCC2A</color>
 
     <!--color untuk gradient tansition-->
     <color name="purple_500">#9c27b0</color>
@@ -17,4 +19,7 @@
 
     <!--color untuk bagian home-->
     <color name="bgHome">#33304E</color>
+
+    <color name="kuning">#FFCC2A</color>
+    <color name="abuabu">#1B1B1B</color>
 </resources>

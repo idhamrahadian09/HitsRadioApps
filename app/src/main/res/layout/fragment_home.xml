@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/tools"
+    tool:context=".view.HomeActivity">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/home"
-    android:layout_centerInParent="true"
-    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_logo_radio" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/nowplaying"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_live"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/text"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_song"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/abuabu"/>
+
+    <TextView
+        android:id="@+id/idsongname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/songname"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/profile_image"
+        android:layout_centerInParent="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_fav"
+        android:layout_below="@+id/profile_image"
+        android:layout_toRightOf="@id/idsongname"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="45dp"/>
+
+    <TextView
+        android:id="@+id/idartist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/artist"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/idsongname"
+        android:layout_centerInParent="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
+
+    <ImageView
+        android:id="@+id/btnPlay"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/idartist"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_play"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPlay"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/seekBar"
+        android:layout_below="@id/btnPlay"
+        android:src="@drawable/ic_vol_min"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/seekBar"
+        android:layout_below="@id/btnPlay"
+        android:src="@drawable/ic_vol_max"/>
 
 </RelativeLayout>
