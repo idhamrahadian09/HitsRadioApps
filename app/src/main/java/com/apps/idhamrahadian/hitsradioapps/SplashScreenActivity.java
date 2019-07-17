@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 
 import com.apps.idhamrahadian.hitsradioapps.view.HomeActivity;
+import com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity;
 
 
 public class SplashScreenActivity extends AppCompatActivity {

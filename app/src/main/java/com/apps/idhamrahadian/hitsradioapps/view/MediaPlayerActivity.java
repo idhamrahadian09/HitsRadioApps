@@ -1,26 +1,18 @@
 package com.apps.idhamrahadian.hitsradioapps.view;
 
 import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
-
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
 import java.io.IOException;
 
-
-public class HomeFragment extends Fragment implements OnClickListener{
+public class MediaPlayerActivity extends AppCompatActivity implements View.OnClickListener {
 
     /* Untuk keperluan streaming Radio */
     String url_radio = "http://hits.unikom.ac.id:9996/;listen.pls?sid=1";
@@ -29,31 +21,26 @@ public class HomeFragment extends Fragment implements OnClickListener{
     private Button btnPause;
     private SeekBar seekBar;
 
-
-    //    Dipanggil ketika activity pertama dibuat
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         /*         Untuk keperluan streaming radio */
-/*        initializeUIElements();
+        initializeUIElements();
 
-        initializeMediaPlayer();*/
+        initializeMediaPlayer();
 
-
-        return view;
     }
 
     private void initializeUIElements() {
-
-        btnPlay = (Button) getView().findViewById(R.id.btnPlay);
+        btnPlay = (Button) findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(this);
 
-        btnPause = (Button) getView().findViewById(R.id.btnPause);
+        btnPause = (Button) findViewById(R.id.btnPause);
         btnPlay.setOnClickListener(this);
 
     }
-
 
     public void onClick(View v){
         if (v == btnPlay){

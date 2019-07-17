@@ -24,6 +24,14 @@
     <string name="about">About</string>
     <string name="setting">Setting</string>
     <string name="mediaPlayer">Media Player</string>
+    <string name="caption">Fill in to request song</string>
+    <string name="fullName">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="city">City</string>
+    <string name="artistName"> Artist Name </string>
+    <string name="songTitle">Song Title</string>
+    <string name="send">SEND</string>
 
     <!--string array-->
     <string-array name="Planets">
@@ -37,5 +45,17 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+    <string name="htmlFormattedTextforAboutFrag">
+    <![CDATA[
+<b> Hits Unikom Radio</b> berdiri berdasarkan Surat Keputusan Direktorat Jendral Hukum dan Perundangan-Undangan Departemen Kehakiman No. C2.6353.HT.01.04-Th ‘90. Hits Radio menggunakan frekuensi 103.9 FM yang sebelumnya dimiliki oleh RADIO ANTASSALAM. Tepat tanggal 1 Mei 2012, gelombang tersebut berpindah tangan ke Dahlia Group. Saat itu nama radionya masih Radio Antassalam, Kemudian Tepat tanggal 31 Agustus 2013 Radio Antassalam berganti nama menjadi 103.9 HITS RADIO. Pada bulan Desember 2018 tepatnya tanggal 16 berpindah tangan ke Universitas Swasta Ternama yaitu Universitas Komputer Indonedia (UNIKOM) yang ada di bandung dan sekarang resmi menjadi HITS UNIKOM RADIO 103.9FM.
+
+<b>MUSIK</b>
+Hits Unikom Radio selalu menyuguhkan musik dan informasi yang "hits", karena sesuai tagline kami, "Semua Hits Ada Di Sini". Lagu-lagu yang diputar Hits Unikom Radio adalah hitst terpilih dari berbagai genre yang disukai anak muda, mulai dari pop, rock, R&B, hip hop, dan masih banyak lagi
+
+<b>TARGET PENDENGAR</b>
+Secara global positioning Hits UNIKOM Radio adalah anak-anak milenial berusia 17 sampai 37 tahun yang aktif berkegiatan di luar rumah, memiliki rasa ingin tahu yang tinggi terhadap isu dan tren terbaru. Atas pertimbangan tersebut, maka tema-tema yang diangkat dalam program on-air dan off-air banyak membahas soal aktifitas dan isu yang berkembang dalam di kalangan anak muda. Fun, Menghibur dan intelektual adalah konsep yang coba ditawarkan oleh Hits Unikom Radio melalui program dan konten siarannya.
+    ]]>
+</string>
 
 </resources>
