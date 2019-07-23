@@ -9,12 +9,9 @@
     android:background="@drawable/gradient0"
     android:fitsSystemWindows="true">
 
-    <!-- FrameLayout sebagai container halaman -->
     <FrameLayout
-        android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -23,6 +20,14 @@
             android:fitsSystemWindows="true"
             android:minHeight="?attr/actionBarSize"
             app:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+    </FrameLayout>
+
+    <!-- FrameLayout sebagai container halaman -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     </FrameLayout>
 

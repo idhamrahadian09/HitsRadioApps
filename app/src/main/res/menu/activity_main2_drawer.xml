@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_dw_media"
+            android:title="@string/menu_media_player" />
+        <item
+            android:id="@+id/nav_favouriteSong"
+            android:icon="@drawable/ic_dw_fav"
+            android:title="@string/menu_fav_song" />
+        <item
+            android:id="@+id/nav_song_req"
+            android:icon="@drawable/ic_dw_req"
+            android:title="@string/menu_song_req" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_dw_gallery"
+            android:title="@string/menu_gallery" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_dw_event"
+            android:title="@string/menu_event" />
+        <item
+            android:id="@+id/nav_yt_video"
+            android:icon="@drawable/ic_dw_yt"
+            android:title="@string/menu_yt_video" />
+        <item
+            android:id="@+id/nav_alarm_clock"
+            android:icon="@drawable/ic_dw_alarm"
+            android:title="@string/menu_alarm_clock" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_dw_schedule"
+            android:title="@string/menu_schedule" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_social_media"
+                android:icon="@drawable/ic_dw_social"
+                android:title="@string/menu_social_media" />
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_dw_contact"
+                android:title="@string/menu_contact" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_dw_about"
+                android:title="@string/menu_about" />
+        </menu>
+    </item>
+
+</menu>

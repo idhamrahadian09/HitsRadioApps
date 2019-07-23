@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import com.apps.idhamrahadian.hitsradioapps.view.HomeActivity;
-import com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity;
+import com.apps.idhamrahadian.hitsradioapps.view.Main2Activity;
 
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -20,7 +19,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, HomeActivity.class));
+                startActivity(new Intent(SplashScreenActivity.this, Main2Activity.class));
                 finish();
             }
         },4000);

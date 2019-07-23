@@ -158,9 +158,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_favouriteSong:
                         fragment = new FavouriteFragment();
                         break;
-                    case R.id.nav_songRequest:
-                        fragment = new SongRequestFragment();
-                        break;
+
                     case R.id.nav_gallery:
                         fragment = new GalleryFragment();
                         break;

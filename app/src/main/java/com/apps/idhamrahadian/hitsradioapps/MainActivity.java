@@ -18,14 +18,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 
-import com.apps.idhamrahadian.hitsradioapps.R;
 import com.apps.idhamrahadian.hitsradioapps.view.AboutFragment;
 import com.apps.idhamrahadian.hitsradioapps.view.FavouriteFragment;
 import com.apps.idhamrahadian.hitsradioapps.view.GalleryFragment;
-import com.apps.idhamrahadian.hitsradioapps.view.HomeActivity;
-import com.apps.idhamrahadian.hitsradioapps.view.HomeFragment;
 import com.apps.idhamrahadian.hitsradioapps.view.SocialMedia;
-import com.apps.idhamrahadian.hitsradioapps.view.SongRequestFragment;
 
 import java.io.IOException;
 
@@ -156,9 +152,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         return true;
                     case R.id.nav_favouriteSong:
                         fragment = new FavouriteFragment();
-                        break;
-                    case R.id.nav_songRequest:
-                        fragment = new SongRequestFragment();
                         break;
                     case R.id.nav_gallery:
                         fragment = new GalleryFragment();
