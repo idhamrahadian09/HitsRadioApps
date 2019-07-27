@@ -19,7 +19,6 @@
         android:layout_height="75dp"
         android:src="@drawable/gf_loading01"
         android:layout_below="@+id/logo"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

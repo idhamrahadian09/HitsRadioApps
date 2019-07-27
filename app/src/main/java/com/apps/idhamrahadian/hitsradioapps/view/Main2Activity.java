@@ -31,7 +31,6 @@ public class Main2Activity extends AppCompatActivity
     MediaPlayer player;
     private Button btnPlay;
     private Button btnPause;
-    private SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +38,14 @@ public class Main2Activity extends AppCompatActivity
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+/*        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -123,6 +122,7 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_contact) {
 
         } else if (id == R.id.nav_about) {
+            startActivity(new Intent(this, AboutFragment.class));
 
         }
 
@@ -134,11 +134,14 @@ public class Main2Activity extends AppCompatActivity
     // Untuk Streaming Radio
 
     private void initializeUIElements() {
+
+
         btnPlay = (Button) findViewById(R.id.btnPlay);
         btnPlay.setOnClickListener(this);
 
         btnPause = (Button) findViewById(R.id.btnPause);
-        btnPlay.setOnClickListener(this);
+        btnPause.setOnClickListener(this);
+
 
     }
 
@@ -150,6 +153,20 @@ public class Main2Activity extends AppCompatActivity
         }
     }
 
+    private void startPlaying() {
+        btnPause.setEnabled(true);
+        btnPlay.setEnabled(false);
+        player.prepareAsync();
+        player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                player.start();
+            }
+        });
+        btnPlay.setVisibility(View.INVISIBLE);
+        btnPause.setVisibility(View.VISIBLE);
+    }
+
     private void stopPlaying() {
         if (player.isPlaying()){
             player.stop();
@@ -158,6 +175,8 @@ public class Main2Activity extends AppCompatActivity
         }
         btnPlay.setEnabled(true);
         btnPause.setEnabled(false);
+        btnPlay.setVisibility(View.VISIBLE);
+        btnPause.setVisibility(View.INVISIBLE);
 
     }
 
@@ -172,27 +191,16 @@ public class Main2Activity extends AppCompatActivity
         } catch (IOException e){
             e.printStackTrace();
         }
-        player.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+/*        player.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             @Override
             public void onBufferingUpdate(MediaPlayer mp, int percent) {
                 seekBar.setIndeterminate(false);
                 seekBar.setSecondaryProgress(100);
                 Log.i("Buffering", "" + percent);
             }
-        });
+        });*/
 
     }
 
-    private void startPlaying() {
-        btnPause.setEnabled(true);
-        btnPlay.setEnabled(false);
-        player.prepareAsync();
-        player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                player.start();
-            }
-        });
-    }
 
 }
