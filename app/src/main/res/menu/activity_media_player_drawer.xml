@@ -2,12 +2,11 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-    >
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_mediaPlayer"
             android:icon="@drawable/ic_dw_media"
             android:title="@string/menu_media_player" />
         <item
@@ -15,7 +14,7 @@
             android:icon="@drawable/ic_dw_fav"
             android:title="@string/menu_fav_song" />
         <item
-            android:id="@+id/nav_song_req"
+            android:id="@+id/nav_songReq"
             android:icon="@drawable/ic_dw_req"
             android:title="@string/menu_song_req" />
         <item
@@ -27,11 +26,11 @@
             android:icon="@drawable/ic_dw_event"
             android:title="@string/menu_event" />
         <item
-            android:id="@+id/nav_yt_video"
+            android:id="@+id/nav_youtube"
             android:icon="@drawable/ic_dw_yt"
             android:title="@string/menu_yt_video" />
         <item
-            android:id="@+id/nav_alarm_clock"
+            android:id="@+id/nav_alarmClock"
             android:icon="@drawable/ic_dw_alarm"
             android:title="@string/menu_alarm_clock" />
         <item
@@ -44,7 +43,7 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_social_media"
+                android:id="@+id/nav_socialMedia"
                 android:icon="@drawable/ic_dw_social"
                 android:title="@string/menu_social_media" />
             <item

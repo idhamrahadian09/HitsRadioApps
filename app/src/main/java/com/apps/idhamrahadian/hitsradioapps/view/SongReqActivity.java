@@ -1,40 +1,45 @@
 package com.apps.idhamrahadian.hitsradioapps.view;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
+import android.support.v4.view.GravityCompat;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
-public class SongReqActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class SongReqActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    Toolbar toolbar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_song_req);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_song_req);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+/*        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        });*/
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -55,7 +60,7 @@ public class SongReqActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.media_player, menu);
         return true;
     }
 
@@ -79,32 +84,60 @@ public class SongReqActivity extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(MenuItem item) {
 
         int id = item.getItemId();
+        switch (id) {
 
-        if (id == R.id.nav_home) {
-            startActivity(new Intent(this, Main2Activity.class));
+            case R.id.nav_mediaPlayer:
+                Intent mp = new Intent(SongReqActivity.this, MediaPlayerActivity.class);
+                startActivity(mp);
+                break;
 
-        } else if (id == R.id.nav_gallery) {
+            case R.id.nav_favouriteSong:
+                Intent i = new Intent(SongReqActivity.this, FavouriteActivity.class);
+                startActivity(i);
+                break;
 
-        } else if (id == R.id.nav_favouriteSong) {
+            case R.id.nav_songReq:
+                break;
 
-        } else if (id == R.id.nav_song_req) {
+            case R.id.nav_gallery:
+                Intent gl = new Intent(SongReqActivity.this, GalleryActivity.class);
+                startActivity(gl);
+                break;
 
-        } else if (id == R.id.nav_gallery) {
+            case R.id.nav_events:
+                Intent ev = new Intent(SongReqActivity.this, EventActivity.class);
+                startActivity(ev);
+                break;
 
-        } else if (id == R.id.nav_events) {
+            case R.id.nav_youtube:
+                Intent yt = new Intent(SongReqActivity.this, YoutubeActivity.class);
+                startActivity(yt);
+                break;
 
-        } else if (id == R.id.nav_yt_video) {
+            case R.id.nav_alarmClock:
+                Intent ac = new Intent(SongReqActivity.this, AlarmActivity.class);
+                startActivity(ac);
+                break;
 
-        } else if (id == R.id.nav_alarm_clock) {
+            case R.id.nav_schedule:
+                Intent sc = new Intent(SongReqActivity.this, ScheduleActivity.class);
+                startActivity(sc);
+                break;
 
-        } else if (id == R.id.nav_schedule) {
+            case R.id.nav_contact:
+                Intent cc = new Intent(SongReqActivity.this, ContactActivity.class);
+                startActivity(cc);
+                break;
 
-        } else if (id == R.id.nav_social_media) {
+            case R.id.nav_socialMedia:
+                Intent sm = new Intent(SongReqActivity.this, SocialActivity.class);
+                startActivity(sm);
+                break;
 
-        } else if (id == R.id.nav_contact) {
-
-        } else if (id == R.id.nav_about) {
-
+            case R.id.nav_about:
+                Intent ab = new Intent(SongReqActivity.this, AboutActivity.class);
+                startActivity(ab);
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

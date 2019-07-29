@@ -57,7 +57,7 @@ Hits Unikom Radio selalu menyuguhkan musik dan informasi yang "hits", karena ses
 Secara global positioning Hits UNIKOM Radio adalah anak-anak milenial berusia 17 sampai 37 tahun yang aktif berkegiatan di luar rumah, memiliki rasa ingin tahu yang tinggi terhadap isu dan tren terbaru. Atas pertimbangan tersebut, maka tema-tema yang diangkat dalam program on-air dan off-air banyak membahas soal aktifitas dan isu yang berkembang dalam di kalangan anak muda. Fun, Menghibur dan intelektual adalah konsep yang coba ditawarkan oleh Hits Unikom Radio melalui program dan konten siarannya.
     ]]>
 </string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main2">Media Player</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -81,8 +81,15 @@ Secara global positioning Hits UNIKOM Radio adalah anak-anak milenial berusia 17
     <string name="menu_alarm_clock">Alarm Clock</string>
     <string name="menu_schedule">Schedule</string>
     <string name="menu_about">About</string>
-    <string name="title_activity_schedule">ScheduleActivity</string>
-    <string name="title_activity_social">SocialActivity</string>
-    <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="title_activity_schedule">Schedule</string>
+    <string name="title_activity_social">Social Media</string>
+    <string name="title_activity_alarm">Alarm Clock</string>
+    <string name="title_activity_favourite">Favourite</string>
+    <string name="title_activity_gallery">Gallery</string>
+    <string name="title_activity_event">Event</string>
+    <string name="title_activity_youtube">Youtube Video</string>
+    <string name="title_activity_contact">Contact</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_songreq">Song Request</string>
 
 </resources>

@@ -3,9 +3,9 @@ package com.apps.idhamrahadian.hitsradioapps.view;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,14 +17,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
-import android.widget.SeekBar;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
 import java.io.IOException;
 
-public class Main2Activity extends AppCompatActivity
+public class MediaPlayerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    Toolbar toolbar = null;
 
     /* Untuk keperluan streaming Radio */
     String url_radio = "http://103.112.189.100:9996/;stream.nsv";
@@ -32,10 +35,12 @@ public class Main2Activity extends AppCompatActivity
     private Button btnPlay;
     private Button btnPause;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_media_player);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 /*        FloatingActionButton fab = findViewById(R.id.fab);
@@ -73,7 +78,7 @@ public class Main2Activity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main2, menu);
+        getMenuInflater().inflate(R.menu.media_player, menu);
         return true;
     }
 
@@ -95,35 +100,62 @@ public class Main2Activity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
+        switch (id) {
 
-        if (id == R.id.nav_home) {
+            case R.id.nav_mediaPlayer:
+                break;
 
-        } else if (id == R.id.nav_gallery) {
+            case R.id.nav_favouriteSong:
+                Intent i = new Intent(MediaPlayerActivity.this, FavouriteActivity.class);
+                startActivity(i);
+                break;
 
-        } else if (id == R.id.nav_favouriteSong) {
+            case R.id.nav_songReq:
+                Intent sr = new Intent(MediaPlayerActivity.this, SongReqActivity.class);
+                startActivity(sr);
+                break;
 
-        } else if (id == R.id.nav_song_req) {
-            startActivity(new Intent(this, SongReqActivity.class));
+            case R.id.nav_gallery:
+                Intent gl = new Intent(MediaPlayerActivity.this, GalleryActivity.class);
+                startActivity(gl);
+                break;
 
-        } else if (id == R.id.nav_gallery) {
+            case R.id.nav_events:
+                Intent ev = new Intent(MediaPlayerActivity.this, EventActivity.class);
+                startActivity(ev);
+                break;
 
-        } else if (id == R.id.nav_events) {
+            case R.id.nav_youtube:
+                Intent yt = new Intent(MediaPlayerActivity.this, YoutubeActivity.class);
+                startActivity(yt);
+                break;
 
-        } else if (id == R.id.nav_yt_video) {
+            case R.id.nav_alarmClock:
+                Intent ac = new Intent(MediaPlayerActivity.this, AlarmActivity.class);
+                startActivity(ac);
+                break;
 
-        } else if (id == R.id.nav_alarm_clock) {
+            case R.id.nav_schedule:
+                Intent sc = new Intent(MediaPlayerActivity.this, ScheduleActivity.class);
+                startActivity(sc);
+                break;
 
-        } else if (id == R.id.nav_schedule) {
+            case R.id.nav_contact:
+                Intent cc = new Intent(MediaPlayerActivity.this, ContactActivity.class);
+                startActivity(cc);
+                break;
 
-        } else if (id == R.id.nav_social_media) {
+            case R.id.nav_socialMedia:
+                Intent sm = new Intent(MediaPlayerActivity.this, SocialActivity.class);
+                startActivity(sm);
+                break;
 
-        } else if (id == R.id.nav_contact) {
-
-        } else if (id == R.id.nav_about) {
-            startActivity(new Intent(this, AboutFragment.class));
-
+            case R.id.nav_about:
+                Intent ab = new Intent(MediaPlayerActivity.this, AboutActivity.class);
+                startActivity(ab);
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -132,7 +164,6 @@ public class Main2Activity extends AppCompatActivity
     }
 
     // Untuk Streaming Radio
-
     private void initializeUIElements() {
 
 

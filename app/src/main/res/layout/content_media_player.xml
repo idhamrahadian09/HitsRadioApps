@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient0"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".view.Main2Activity"
-    tools:showIn="@layout/app_bar_main2">
+    tools:context="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"
+    tools:showIn="@layout/app_bar_media_player">
 
     <ImageView
         android:id="@+id/logo"
@@ -146,4 +145,5 @@
         android:layout_toEndOf="@+id/seekBar"
         android:layout_below="@id/btnPlay"
         android:src="@drawable/ic_vol_max"/>
+
 </RelativeLayout>
