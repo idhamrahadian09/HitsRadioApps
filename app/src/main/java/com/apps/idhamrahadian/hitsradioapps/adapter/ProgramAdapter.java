@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -35,11 +36,11 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.MyHolder
 
     @Override
     public void onBindViewHolder(ProgramAdapter.MyHolder holder, final int position) {
-        ProgramModel superheroModel = mList.get(position);
-        holder.prog_name.setText(superheroModel.getProg_name());
-        holder.prog_desc.setText(superheroModel.getProg_desc());
-        holder.prog_hours.setText(superheroModel.getProg_hours());
-        holder.prog_day.setText(superheroModel.getProg_day());
+        ProgramModel programModel = mList.get(position);
+        holder.prog_name.setText(programModel.getProg_name());
+        holder.prog_desc.setText(programModel.getProg_desc());
+        holder.prog_hours.setText(programModel.getProg_hours());
+        holder.prog_day.setText(programModel.getProg_day());
 
 
     }
@@ -61,6 +62,7 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.MyHolder
             prog_desc = (TextView) v.findViewById(R.id.txtProgDesc);
             prog_hours = (TextView) v.findViewById(R.id.txtProgHours);
             prog_day = (TextView) v.findViewById(R.id.txtProgDay);
+
 
 
         }

@@ -89,11 +89,13 @@ public class SongReqActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(SongReqActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(SongReqActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
@@ -102,41 +104,49 @@ public class SongReqActivity extends AppCompatActivity
             case R.id.nav_gallery:
                 Intent gl = new Intent(SongReqActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
                 Intent ev = new Intent(SongReqActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
                 Intent yt = new Intent(SongReqActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(SongReqActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
                 Intent sc = new Intent(SongReqActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
                 Intent cc = new Intent(SongReqActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(SongReqActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(SongReqActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 

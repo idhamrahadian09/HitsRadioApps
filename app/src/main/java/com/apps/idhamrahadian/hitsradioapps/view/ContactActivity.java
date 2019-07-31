@@ -89,41 +89,49 @@ public class ContactActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(ContactActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(ContactActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(ContactActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
                 Intent gl = new Intent(ContactActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
                 Intent ev = new Intent(ContactActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
                 Intent yt = new Intent(ContactActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(ContactActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
                 Intent sc = new Intent(ContactActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
@@ -132,11 +140,13 @@ public class ContactActivity extends AppCompatActivity
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(ContactActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(ContactActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 

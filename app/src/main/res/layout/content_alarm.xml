@@ -4,26 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/abuabu"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.apps.idhamrahadian.hitsradioapps.view.AlarmActivity"
     tools:showIn="@layout/app_bar_alarm">
 
-
-    <ImageView
-        android:id="@+id/warning"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+    <RelativeLayout
+        android:id="@+id/laytimer"
         android:layout_centerInParent="true"
-        android:src="@drawable/ic_warning"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/enterMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/startTimer"
+            android:hint="@string/enter_minutes"
+            android:padding="10dp"
+            android:maxLength="4"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            />
+
+        <Button
+            android:id="@+id/startTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="6dp"
+            android:background="@color/abuabu"
+            android:padding="10dp"
+            android:text="@string/start_timer"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/txtAbout"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/laytimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/warning"
-        android:layout_marginTop="10dp"
-        style="@style/title"
-        android:text="@string/warning"
-        android:layout_centerInParent="true"/>
+        android:id="@+id/countdownText"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:text="@string/timer"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/abuabu"/>
+    <Button
+        android:id="@+id/resetTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/abuabu"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/countdownText"
+        android:text="@string/reset_timer" />
 </RelativeLayout>

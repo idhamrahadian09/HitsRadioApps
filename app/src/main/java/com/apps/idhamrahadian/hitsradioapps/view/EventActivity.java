@@ -89,21 +89,25 @@ public class EventActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(EventActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(EventActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(EventActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
                 Intent gl = new Intent(EventActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
@@ -112,31 +116,37 @@ public class EventActivity extends AppCompatActivity
             case R.id.nav_youtube:
                 Intent yt = new Intent(EventActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(EventActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
                 Intent sc = new Intent(EventActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
                 Intent cc = new Intent(EventActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(EventActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(EventActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 

@@ -89,26 +89,31 @@ public class YoutubeActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(YoutubeActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(YoutubeActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(YoutubeActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
                 Intent gl = new Intent(YoutubeActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
                 Intent ev = new Intent(YoutubeActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
@@ -117,26 +122,31 @@ public class YoutubeActivity extends AppCompatActivity
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(YoutubeActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
                 Intent sc = new Intent(YoutubeActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
                 Intent cc = new Intent(YoutubeActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(YoutubeActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(YoutubeActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 

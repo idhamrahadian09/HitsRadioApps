@@ -89,51 +89,61 @@ public class AboutActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(AboutActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(AboutActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(AboutActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
                 Intent gl = new Intent(AboutActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
                 Intent ev = new Intent(AboutActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
                 Intent yt = new Intent(AboutActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(AboutActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
                 Intent sc = new Intent(AboutActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
                 Intent cc = new Intent(AboutActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(AboutActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:

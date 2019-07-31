@@ -1,12 +1,19 @@
 package com.apps.idhamrahadian.hitsradioapps.view;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,13 +25,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
+import com.gauravk.audiovisualizer.visualizer.BarVisualizer;
+
 import java.io.IOException;
 
+
 public class MediaPlayerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int PERM_REQ_CODE = 23;
 
     Button next;
 
@@ -32,12 +46,15 @@ public class MediaPlayerActivity extends AppCompatActivity
     NavigationView navigationView;
     Toolbar toolbar = null;
 
-    /* Untuk keperluan streaming Radio */
-    String url_radio = "http://103.112.189.100:9996/;stream.nsv";
-    MediaPlayer player;
-    private Button btnPlay;
-    private Button btnPause;
+    ImageButton imgButton;
+    BarVisualizer mVisualizer;
+    MediaPlayer mediaPlayer;
 
+    String stream = "http://103.112.189.100:9996/;stream.nsv";
+
+    boolean prepared = false;
+    boolean started = false;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -62,21 +79,102 @@ public class MediaPlayerActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        /* Untuk keperluan streaming radio */
-        initializeUIElements();
+        imgButton = findViewById(R.id.playbtn);
+        imgButton.setImageResource(R.drawable.playbtn);
+        mVisualizer = findViewById(R.id.bar);
 
-        initializeMediaPlayer();
-/*
-        *//*Untuk memperlancar menggunakan Intent*//*
-        Button next = (Button) findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
+        int audioSessionId = mediaPlayer.getAudioSessionId();
+        if (audioSessionId != AudioManager.ERROR) {
+            mVisualizer.setAudioSessionId(mediaPlayer.getAudioSessionId());
+        }
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
+        new PlayerTask().execute(stream);
+
+        imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentku = new Intent(MediaPlayerActivity.this, MediaPlayerActivity.class);
-                startActivity(intentku);
+                if (started) {
+                    started = false;
+                    mediaPlayer.pause();
+                    imgButton.setImageResource(R.drawable.playbtn);
+                } else {
+                    started = true;
+                    mediaPlayer.start();
+                    mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        public void onPrepared(MediaPlayer mp) {
+                            mp.start();
+                        }
+                    });
+                    imgButton.setImageResource(R.drawable.pausebtn);
+                }
             }
-        });*/
+        });
     }
+
+    class PlayerTask extends AsyncTask<String, Void, Boolean> {
+        @Override
+        protected Boolean doInBackground(String... strings) {
+
+            try {
+                mediaPlayer.setDataSource(strings[0]);
+                mediaPlayer.prepare();
+                prepared = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return prepared;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
+            if (progressDialog.isShowing()) {
+                progressDialog.cancel();
+            }
+            imgButton.setImageResource(R.drawable.playbtn);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (started) {
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (started) {
+            //mediaPlayer.start();
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+            mediaPlayer.prepareAsync();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (prepared) {
+            mediaPlayer.release();
+        }
+        if (mVisualizer != null)
+            mVisualizer.hide();
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -175,76 +273,5 @@ public class MediaPlayerActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    // Untuk Streaming Radio
-    private void initializeUIElements() {
-
-
-        btnPlay = (Button) findViewById(R.id.btnPlay);
-        btnPlay.setOnClickListener(this);
-
-        btnPause = (Button) findViewById(R.id.btnPause);
-        btnPause.setOnClickListener(this);
-
-
-    }
-
-    public void onClick(View v){
-        if (v == btnPlay){
-            startPlaying();
-        } else if (v == btnPause){
-            stopPlaying();
-        }
-    }
-
-    private void startPlaying() {
-        btnPause.setEnabled(true);
-        btnPlay.setEnabled(false);
-        player.prepareAsync();
-        player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                player.start();
-            }
-        });
-        btnPlay.setVisibility(View.INVISIBLE);
-        btnPause.setVisibility(View.VISIBLE);
-    }
-
-    private void stopPlaying() {
-        if (player.isPlaying()){
-            player.stop();
-            player.release();
-            initializeMediaPlayer();
-        }
-        btnPlay.setEnabled(true);
-        btnPause.setEnabled(false);
-        btnPlay.setVisibility(View.VISIBLE);
-        btnPause.setVisibility(View.INVISIBLE);
-
-    }
-
-    private void initializeMediaPlayer() {
-        player = new MediaPlayer();
-        try {
-            player.setDataSource(url_radio);
-        } catch (IllegalArgumentException e){
-            e.printStackTrace();
-        } catch (IllegalStateException e){
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-/*        player.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
-            @Override
-            public void onBufferingUpdate(MediaPlayer mp, int percent) {
-                seekBar.setIndeterminate(false);
-                seekBar.setSecondaryProgress(100);
-                Log.i("Buffering", "" + percent);
-            }
-        });*/
-
-    }
-
 
 }

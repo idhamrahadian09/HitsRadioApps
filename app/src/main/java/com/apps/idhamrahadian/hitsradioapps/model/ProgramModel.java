@@ -1,5 +1,7 @@
 package com.apps.idhamrahadian.hitsradioapps.model;
 
+import android.widget.ImageView;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ProgramModel {
@@ -12,6 +14,7 @@ public class ProgramModel {
     private String prog_hours;
     @SerializedName("prog_day")
     private String prog_day;
+
 
     public String getProg_name() {
         return prog_name;
@@ -44,4 +47,5 @@ public class ProgramModel {
     public void setProg_day(String prog_day) {
         this.prog_day = prog_day;
     }
+
 }

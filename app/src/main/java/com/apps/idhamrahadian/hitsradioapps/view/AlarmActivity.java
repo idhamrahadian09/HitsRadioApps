@@ -2,6 +2,7 @@ package com.apps.idhamrahadian.hitsradioapps.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -14,15 +15,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
 
+import java.util.concurrent.TimeUnit;
+
 public class AlarmActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar = null;
+
+//    Untuk Timer
+    private static TextView countdownTimerText;
+    private static EditText minutes;
+    private static Button startTimer, resetTimer;
+    private static CountDownTimer countDownTimer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +59,13 @@ public class AlarmActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        countdownTimerText = (TextView) findViewById(R.id.countdownText);
+        minutes = (EditText) findViewById(R.id.enterMinutes);
+        startTimer = (Button) findViewById(R.id.startTimer);
+        resetTimer = (Button) findViewById(R.id.resetTimer);
+
+        setListeners();
     }
 
     @Override
@@ -89,16 +110,19 @@ public class AlarmActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(AlarmActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(AlarmActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(AlarmActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
@@ -109,11 +133,13 @@ public class AlarmActivity extends AppCompatActivity
             case R.id.nav_events:
                 Intent ev = new Intent(AlarmActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
                 Intent yt = new Intent(AlarmActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
@@ -122,21 +148,25 @@ public class AlarmActivity extends AppCompatActivity
             case R.id.nav_schedule:
                 Intent sc = new Intent(AlarmActivity.this, ScheduleActivity.class);
                 startActivity(sc);
+                finish();
                 break;
 
             case R.id.nav_contact:
                 Intent cc = new Intent(AlarmActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(AlarmActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(AlarmActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 
@@ -144,4 +174,70 @@ public class AlarmActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    //Set Listeners over button
+    private void setListeners() {
+        startTimer.setOnClickListener(this);
+        resetTimer.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.startTimer:
+                //If CountDownTimer is null then start timer
+                if (countDownTimer == null) {
+                    String getMinutes = minutes.getText().toString();//Get minutes from edittexf
+                    //Check validation over edittext
+                    if (!getMinutes.equals("") && getMinutes.length() > 0) {
+                        int noOfMinutes = Integer.parseInt(getMinutes) * 60 * 1000;//Convert minutes into milliseconds
+
+                        startTimer(noOfMinutes);//start countdown
+                        startTimer.setText(getString(R.string.stop_timer));//Change Text
+
+                    } else
+                        Toast.makeText(AlarmActivity.this, "Please enter no. of Minutes.", Toast.LENGTH_SHORT).show();//Display toast if edittext is empty
+                } else {
+                    //Else stop timer and change text
+                    stopCountdown();
+                    startTimer.setText(getString(R.string.start_timer));
+                }
+                break;
+            case R.id.resetTimer:
+                stopCountdown();//stop count down
+                startTimer.setText(getString(R.string.start_timer));//Change text to Start Timer
+                countdownTimerText.setText(getString(R.string.timer));//Change Timer text
+                break;
+        }
+
+    }
+    //Stop Countdown method
+    private void stopCountdown() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
+    }
+
+    //Start Countodwn method
+    private void startTimer(int noOfMinutes) {
+        countDownTimer = new CountDownTimer(noOfMinutes, 1000) {
+            public void onTick(long millisUntilFinished) {
+                long millis = millisUntilFinished;
+                //Convert milliseconds into hour,minute and seconds
+                String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis), TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                countdownTimerText.setText(hms);//set text
+            }
+
+            public void onFinish() {
+
+                countdownTimerText.setText("TIME'S UP!!"); //On finish change timer text
+                countDownTimer = null;//set CountDownTimer to null
+                startTimer.setText(getString(R.string.start_timer));//Change button text
+            }
+        }.start();
+
+    }
+
 }

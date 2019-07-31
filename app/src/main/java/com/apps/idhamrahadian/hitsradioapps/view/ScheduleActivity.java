@@ -37,6 +37,8 @@ import retrofit2.Response;
 public class ScheduleActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar = null;
@@ -72,8 +74,6 @@ public class ScheduleActivity extends AppCompatActivity
 
         /*Untuk keperluan menampilkan data dari API*/
         ButterKnife.bind(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("List Program");
 
         viewAdapter = new ProgramAdapter(this, mItems);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -153,36 +153,43 @@ public class ScheduleActivity extends AppCompatActivity
             case R.id.nav_mediaPlayer:
                 Intent mp = new Intent(ScheduleActivity.this, MediaPlayerActivity.class);
                 startActivity(mp);
+                finish();
                 break;
 
             case R.id.nav_favouriteSong:
                 Intent i = new Intent(ScheduleActivity.this, FavouriteActivity.class);
                 startActivity(i);
+                finish();
                 break;
 
             case R.id.nav_songReq:
                 Intent sr = new Intent(ScheduleActivity.this, SongReqActivity.class);
                 startActivity(sr);
+                finish();
                 break;
 
             case R.id.nav_gallery:
                 Intent gl = new Intent(ScheduleActivity.this, GalleryActivity.class);
                 startActivity(gl);
+                finish();
                 break;
 
             case R.id.nav_events:
                 Intent ev = new Intent(ScheduleActivity.this, EventActivity.class);
                 startActivity(ev);
+                finish();
                 break;
 
             case R.id.nav_youtube:
                 Intent yt = new Intent(ScheduleActivity.this, YoutubeActivity.class);
                 startActivity(yt);
+                finish();
                 break;
 
             case R.id.nav_alarmClock:
                 Intent ac = new Intent(ScheduleActivity.this, AlarmActivity.class);
                 startActivity(ac);
+                finish();
                 break;
 
             case R.id.nav_schedule:
@@ -191,16 +198,19 @@ public class ScheduleActivity extends AppCompatActivity
             case R.id.nav_contact:
                 Intent cc = new Intent(ScheduleActivity.this, ContactActivity.class);
                 startActivity(cc);
+                finish();
                 break;
 
             case R.id.nav_socialMedia:
                 Intent sm = new Intent(ScheduleActivity.this, SocialActivity.class);
                 startActivity(sm);
+                finish();
                 break;
 
             case R.id.nav_about:
                 Intent ab = new Intent(ScheduleActivity.this, AboutActivity.class);
                 startActivity(ab);
+                finish();
                 break;
         }
 
@@ -208,6 +218,8 @@ public class ScheduleActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 
 }
