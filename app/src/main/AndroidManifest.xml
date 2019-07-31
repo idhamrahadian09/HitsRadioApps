@@ -3,6 +3,7 @@
     package="com.apps.idhamrahadian.hitsradioapps">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -14,47 +15,137 @@
         <activity
             android:name=".view.SocialActivity"
             android:label="@string/title_activity_social"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.AboutActivity"
             android:label="@string/title_activity_about"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.ContactActivity"
             android:label="@string/title_activity_contact"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.ScheduleActivity"
             android:label="@string/title_activity_schedule"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.AlarmActivity"
             android:label="@string/title_activity_alarm"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.YoutubeActivity"
             android:label="@string/title_activity_youtube"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.EventActivity"
             android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.GalleryActivity"
             android:label="@string/title_activity_gallery"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.FavouriteActivity"
             android:label="@string/title_activity_favourite"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.SongReqActivity"
             android:label="@string/title_activity_songreq"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".view.MediaPlayerActivity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.apps.idhamrahadian.hitsradioapps.view.MediaPlayerActivity"/>
+            <intent-filter>
+                <action android:name="android.intent.action.DETAIL"/>
+                <category android:name="android.intent.category.DETAIL"/>
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenCustom">

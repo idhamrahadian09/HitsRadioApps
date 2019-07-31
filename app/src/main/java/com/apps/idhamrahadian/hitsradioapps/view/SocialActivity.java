@@ -1,5 +1,6 @@
 package com.apps.idhamrahadian.hitsradioapps.view;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,8 +15,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.apps.idhamrahadian.hitsradioapps.R;
+import com.apps.idhamrahadian.hitsradioapps.api.ApiEndPoint;
+import com.apps.idhamrahadian.hitsradioapps.api.ApiService;
+import com.apps.idhamrahadian.hitsradioapps.model.ResponseModel;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SocialActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,6 +36,17 @@ public class SocialActivity extends AppCompatActivity
     DrawerLayout drawer;
     NavigationView navigationView;
     Toolbar toolbar = null;
+
+    private ProgressDialog progress;
+
+    @BindView(R.id.edt_nama)
+    EditText edtNama;
+    @BindView(R.id.edt_kekuatan)
+    EditText edtKekuatan;
+    @BindView(R.id.edt_tahun)
+    EditText edtTahun;
+    @BindView(R.id.edt_day)
+    EditText edtDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +69,8 @@ public class SocialActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -79,7 +105,6 @@ public class SocialActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -143,5 +168,63 @@ public class SocialActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @OnClick(R.id.btn_tambah)
+    void tambah() {
+        // progress dialog
+        progress = new ProgressDialog(this);
+        progress.setCancelable(false);
+        progress.setMessage("Loading ...");
+        progress.show();
+
+        //Get value to variabel
+        String nama = edtNama.getText().toString();
+        String kekuatan = edtKekuatan.getText().toString();
+        String tahun = edtTahun.getText().toString();
+        String day = edtDay.getText().toString();
+
+
+        //Declare Retrofit
+        ApiService api = ApiEndPoint.getClient().create(ApiService.class);
+
+        Call<ResponseModel> addProgramResponseModelCall = api.postProgram(nama, kekuatan, tahun,day);
+        addProgramResponseModelCall.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+
+                String statusCode = response.body().getStatusCode();
+                String message = response.body().getMessage();
+
+                progress.dismiss();
+                edtNama.setText("");
+                edtKekuatan.setText("");
+                edtTahun.setText("");
+                edtDay.setText("");
+
+                if (statusCode.equals("200")) {
+                    Toast.makeText(SocialActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else if (statusCode.equals("404")) {
+                    Toast.makeText(SocialActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else if (statusCode.equals("500")) {
+                    Toast.makeText(SocialActivity.this, message, Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                progress.dismiss();
+                Toast.makeText(SocialActivity.this, "Oops, your connection is WONGKY! ", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_lihat)
+    void lihat() {
+
+        Intent i = new Intent(this, ScheduleActivity.class);
+        startActivity(i);
     }
 }

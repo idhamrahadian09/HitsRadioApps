@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hits Radio Apps</string>
+    <string name="app_name">Hits Radio Unikom</string>
     <string name="gallery">Gallery</string>
     <string name="home">Home</string>
 
@@ -91,5 +91,6 @@ Secara global positioning Hits UNIKOM Radio adalah anak-anak milenial berusia 17
     <string name="title_activity_contact">Contact</string>
     <string name="title_activity_about">About</string>
     <string name="title_activity_songreq">Song Request</string>
+    <string name="warning">Maaf ya, fiturnya masih dalam pengembangan :)</string>
 
 </resources>

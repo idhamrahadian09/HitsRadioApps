@@ -1,5 +1,6 @@
 package com.apps.idhamrahadian.hitsradioapps.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ import java.io.IOException;
 
 public class MediaPlayerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    Button next;
 
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -63,6 +66,16 @@ public class MediaPlayerActivity extends AppCompatActivity
         initializeUIElements();
 
         initializeMediaPlayer();
+/*
+        *//*Untuk memperlancar menggunakan Intent*//*
+        Button next = (Button) findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentku = new Intent(MediaPlayerActivity.this, MediaPlayerActivity.class);
+                startActivity(intentku);
+            }
+        });*/
     }
 
     @Override
